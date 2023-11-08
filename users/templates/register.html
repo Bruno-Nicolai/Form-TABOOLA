@@ -1,1 +1,67 @@
-<h1>Teste</h1>
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block head %}
+  <link rel="stylesheet" href="{% static 'users/src/css/register.css' %}" />
+{% endblock %}
+
+{% block body %}
+  <div class="container-fluid" style="background: var(--color-white-transparent);">
+    <div class="text-center">
+      <h2>Register</h2>
+    </div>
+
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                {{ message }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        {% endfor %}
+    {% endif %}
+
+    <form action="{% url 'register' %}" method="POST" autocomplete="off" class="signup-form">
+      {% csrf_token %}
+
+      <div class="container">
+        <div class="col-md">
+          <label for="email" class="form-label">Email address</label>
+          <input type="email" required name="email" placeholder="example@email.com" class="form-control" minlength="5" autocomplete="off" />
+        </div>
+
+        <div class="row">
+          <div class="col-md">
+            <label for="first_name" class="form-label">First Name</label>
+            <input type="text" required name="first_name" placeholder="Yor First Name" class="col-md-4 form-control" autocomplete="off" />
+          </div>
+
+          <div class="col-md">
+            <label for="last_name" class="form-label">Last Name</label>
+            <input type="text" required name="last_name" placeholder="Last Name" class="col-md-4 form-control" autocomplete="off" />
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md">
+            <label for="password" class="form-label">Password</label>
+            <input type="password" required name="password" placeholder="Example: my_Password432" class="form-control" minlength="6" autocomplete="off" />
+            <div class="form-text" style="text-align: justify; color: var(--color-warning)">At Least 6 characters long and must not contain spaces.</div>
+          </div>
+
+          <div class="col-md">
+            <label for="confirm-password" class="form-label">Confirm Password</label>
+            <input type="password" required name="confirm-password" placeholder="Repeat Password" class="form-control" autocomplete="off" />
+          </div>
+        </div>
+      </div>
+
+      <input class="btn btn-primary text-nowrap" type="submit" value="Create Profile" />
+
+      <div class="login">
+        <p>
+          <a href="#">Already have an account? Redirect to login</a>
+        </p>
+      </div>
+    </form>
+  </div>
+{% endblock %}

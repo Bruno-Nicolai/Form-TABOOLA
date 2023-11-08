@@ -1,0 +1,71 @@
+.container-fluid {
+  max-width: 300px;
+  height: auto;
+  padding: 25px 0 25px;
+  border-radius: 6px;
+  background: #f2f2f2c0;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 32px;
+  display: flex;
+}
+
+.container-logo {
+  max-width: 300px;
+  height: 78px;
+  padding: 0.6rem 0;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  display: inline-flex;
+}
+
+.col img {
+    width: auto;
+    height: 2rem;
+}
+
+.container-welcome {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 10px 14px;
+}
+
+.container-welcome .buttons {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  margin: 1rem 1rem;
+  gap: 14px;
+  outline: 2px solid #f00;
+}
+
+.button {
+  text-align: center;
+  color: #363739;
+  font-size: 14px;
+  font-style: bold;
+  font-family: Lato;
+  font-weight: 400;
+  word-wrap: break-word;
+  text-align: center;
+  font-weight: 400;
+  word-wrap: break-word;
+}
+
+.container-contact-us {
+  margin: 2rem 0;
+}
+
+.contact-us {
+  font-size: 12px;
+}
+
+span {
+  color: #0073b3;
+  cursor: text;
+}

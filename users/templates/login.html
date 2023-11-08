@@ -1,62 +1,47 @@
+{% extends 'base/base.html' %}
 {% load static %}
 
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="{% static 'users/src/css/style.css' %}" />
-    <title>Login Form</title>
-  </head>
-  <body>
-    <div class="wrapper">
-      <div class="form-wrapper">
-        <h2>Login</h2>
-        <form action="index.html" autocomplete="off" class="login-form">
-          <div class="input-group">
-            <label for="username">Username or Email Address</label>
-            <input
-              class="input-field"
-              type="text"
-              name="username"
-              required
-              minlength="5"
-              placeholder="Example@email.com"
-              autocomplete="off"
-            />
-          </div>
-          <div class="input-group">
-            <label for="password">Password</label>
-            <input
-              class="input-field"
-              type="password"
-              name="password"
-              required
-              minlength="6"
-              placeholder="my_Password432"
-              autocomplete="off"
-            />
-          </div>
+{% block head %}
+  <link rel="stylesheet" href="{% static 'users/src/css/login.css' %}" />
+{% endblock %}
 
-          <div class="button">
-            <input type="submit" value="Login"/>
-          </div>
-
-          <div class="forgot-password">
-            <a href="#"><p>Lost Your Password?</p></a>
-          </div>
-          <!-- <div class="signup">
-            <a href="#"><p>Don't have an account?</p></a>
-          </div> -->
-        </form>
-      </div>
+{% block body %}
+  <div class="container-fluid" style="background: var(--color-white-transparent);">
+    <div class="text-center">
+      <h2>Login</h2>
     </div>
-  </body>
-</html>
+    
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                {{ message }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        {% endfor %}
+    {% endif %}
+
+    <form action="{% url 'login' %}" method="POST" autocomplete="off" class="login-form">
+      {% csrf_token %}
+
+      <div class="container">
+        <label for="email" class="form-label">Email address</label>
+        <input type="email" required name="email" placeholder="example@email.com" class="form-control" autocomplete="off" />
+      </div>
+      <div class="container">
+        <label for="password" class="form-label">Password</label>
+        <input type="password" required name="password" placeholder="my_Password432" class="form-control" minlength="6" autocomplete="off" />
+      </div>
+
+      <input class="btn btn-primary text-nowrap" type="submit" value="Login" />
+
+      <div class="forgot-password">
+        <p>
+          <a href="#">Lost Your Password?</a>
+        </p>
+      </div>
+      <div class="signup">
+        <p><a href="#">Don't have an account?</a></p>
+      </div>
+    </form>
+  </div>
+{% endblock %}
