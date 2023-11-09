@@ -13,9 +13,8 @@
 
     {% if messages %}
         {% for message in messages %}
-            <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+            <div class="alert {{ message.tags }} fade show" role="alert">
                 {{ message }}
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
         {% endfor %}
     {% endif %}
@@ -25,8 +24,8 @@
 
       <div class="container">
         <div class="col-md">
-          <label for="email" class="form-label">Email address</label>
-          <input type="email" required name="email" placeholder="example@email.com" class="form-control" minlength="5" autocomplete="off" />
+          <label for="username" class="form-label">Username or Email address</label>
+          <input type="email" required name="username" placeholder="example@email.com" class="form-control" minlength="5" autocomplete="off" />
         </div>
 
         <div class="row">
@@ -45,12 +44,12 @@
           <div class="col-md">
             <label for="password" class="form-label">Password</label>
             <input type="password" required name="password" placeholder="Example: my_Password432" class="form-control" minlength="6" autocomplete="off" />
-            <div class="form-text" style="text-align: justify; color: var(--color-warning)">At Least 6 characters long and must not contain spaces.</div>
+            <div class="form-text" style="text-align: justify; color: var(--color-warning); font-size: 11px;" >At Least 6 characters long and must not contain spaces.</div>
           </div>
 
           <div class="col-md">
-            <label for="confirm-password" class="form-label">Confirm Password</label>
-            <input type="password" required name="confirm-password" placeholder="Repeat Password" class="form-control" autocomplete="off" />
+            <label for="confirm_password" class="form-label">Confirm Password</label>
+            <input type="password" required name="confirm_password" placeholder="Repeat Password" class="form-control" autocomplete="off" />
           </div>
         </div>
       </div>
@@ -59,7 +58,7 @@
 
       <div class="login">
         <p>
-          <a href="#">Already have an account? Redirect to login</a>
+          <a href="{% url 'login' %}">Already have an account? Redirect to login</a>
         </p>
       </div>
     </form>

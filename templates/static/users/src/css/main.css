@@ -1,14 +1,6 @@
-.container-fluid {
-  max-width: 300px;
-  height: auto;
-  padding: 25px 0 25px;
-  border-radius: 6px;
-  background: #f2f2f2c0;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  gap: 32px;
+.wrapper {
   display: flex;
+  flex-direction: column;
 }
 
 .container-logo {
@@ -32,6 +24,8 @@
   justify-content: flex-start;
   align-items: center;
   padding: 10px 14px;
+  gap: .6rem;
+  max-width: 25rem;
 }
 
 .container-welcome .buttons {
@@ -41,20 +35,6 @@
   padding: 0.5rem 1rem;
   margin: 1rem 1rem;
   gap: 14px;
-  outline: 2px solid #f00;
-}
-
-.button {
-  text-align: center;
-  color: #363739;
-  font-size: 14px;
-  font-style: bold;
-  font-family: Lato;
-  font-weight: 400;
-  word-wrap: break-word;
-  text-align: center;
-  font-weight: 400;
-  word-wrap: break-word;
 }
 
 .container-contact-us {
