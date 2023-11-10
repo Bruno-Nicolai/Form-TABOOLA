@@ -15,7 +15,7 @@
 
 .col img {
     width: auto;
-    height: 2rem;
+    height: 3rem;
 }
 
 .container-welcome {
@@ -23,9 +23,8 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  padding: 10px 14px;
+  padding: 1rem .8rem 0;
   gap: .6rem;
-  max-width: 25rem;
 }
 
 .container-welcome .buttons {
@@ -42,7 +41,7 @@
 }
 
 .contact-us {
-  font-size: 12px;
+  font-size: 16px;
 }
 
 span {
